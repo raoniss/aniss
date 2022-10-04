@@ -1,0 +1,42 @@
+<%- include('../../inc/headerspage') %>
+<!--formulaire-->
+<!--create modal-->
+<div >
+    <%- test %> 
+</div>
+<script src="/assets/js/ajout_photo.js"></script>
+<script src="/assets/js/ajout_video.js"></script>
+<script src="/assets/js/ckeditor5/ckeditor.js"></script>
+<script src="/assets/js/modal.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editeur'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+<script>
+    var modal = document.querySelector('.new_rec')
+    var modal_stop = document.querySelector('.stopm')
+    var btn = document.querySelector('.new')
+//    var btnx = document.querySelector('.stop')
+
+    const stop = (e) => {
+        e.stopPropagation()
+    }
+    btn.addEventListener('click', () => {
+        modal_stop.addEventListener('click', stop)
+        modal.style.display = "flex"
+    })
+//    btnx.addEventListener('click', () => {
+//        modal.style.display = "none"
+//    })
+    modal.addEventListener('click', () => {
+        modal.style.display = "none"
+    })
+</script>
+<!--formulaire-->
+<%- include('../../inc/footer') %>

@@ -1,0 +1,149 @@
+<%- include('../inc/header') %>
+<div class="container_ap">
+    <div class="camp_head">
+        <div class="head">
+            <div class="video">
+                <% if ( projet[0].Cp_video) { %>
+                    <video controls ="controls">
+                        <source src="<%- projet[0].Cp_video%>">
+                        Il est temps de mettre a jour votre navigateur
+                    </video>
+                 <% } else { %>
+                    <div class="vid">
+                        <img src="<%- projet[0].Cp_photo%> " alt="">
+                    </div>
+                <% } %>
+            </div>
+            <div class="info">
+                <div class="cont">
+                    <div class="chargement">
+                        <div class="charge">
+                            <span></span>
+                        </div>
+                        <p class="G">0 FCFA</p>
+                        <p class="P">reunis sur 520000<%- //projet[0].Pj_cagnotte%> FCFA</p>
+                    </div>
+                    <div class="row">
+                        <p class="G">0</p>
+                        <p class="P">contributeur</p>
+                    </div>
+                    <div class="row">
+                        <p class="G">25</p>
+                        <p class="P">jours avant la fin</p>
+                    </div>
+                    <div class="row">
+                        <a href="#" class="button">
+                            <p>Je soutiens ce projet</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="camp_body">
+        <div class="body">
+            <div class="body_bar">
+                <div>
+                    <ul>
+                        <a href="">
+                            <li>Campagne</li>
+                        </a>
+                        <a href="">
+                            <li>Commentaire</li>
+                        </a>
+                    </ul>
+                </div>
+                <div>
+                    <a href="" class="button">
+                        <p>Soutenir le projet</p>
+                    </a>
+                </div>
+            </div>
+            <div class="body_body">
+                <div>
+                    <div class="tex_cont">
+                        <div class="text">
+                            <% if (projet[0].Cp_texte) { %>
+                                <p> <%- projet[0].Cp_texte %>  </p>
+                                <% } else { %>
+                                    <p></p>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="rec">
+                        <h1>Soutenir</h1>
+                        <form method="post" action="/soutenir" class="soutien">
+                            <div class="ttl"><p class="gras">soutenir sans contrepartie</p> </div>
+                            <div class="mtn">
+                                <input type="number" name="soutenir" placeholder="FCFA" >
+                                <input type="hidden" name="pjid" value="<%- projet[0].idProjet %> ">
+                                <input type="hidden" name="pjname" value="<%- projet[0].Pj_titre %>">
+                            </div>
+                            <div class="select">
+                                <button type="submit" class="button">Soutenir</button>
+                            </div>
+                        </form>
+                        <% if (projet[0].Cp_rec) { %>
+                            <% for (let i = 0; i < projet[0].Cp_rec.length; i++) { %>
+                                <div>
+                                    <div class="ttl"><p class="gras"><%- projet[0].Cp_rec[i].nom %></p> </div>
+                                    <div class="mtn"><p><%- projet[0].Cp_rec[i].description %></p></div>
+                                    <div class="desc"><p><%- projet[0].Cp_rec[i].montant %></p></div>
+                                    <div class="select">
+                                        <a href="/ajout_rec/<%- [i ,projet[0].idProjet] %> " class="button">Choisir cette recompense</a>
+                                    </div>
+                                </div>
+                            <%}%>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% if (locals.user) { %>
+        <% if (locals.user.financement.recompense.length!=0) { %>
+            <div class="pan">
+                <button class="news" >panier</button>
+            </div>
+            <div id="recs">
+                <div>
+                    <div class="montant">
+                        <h1>Montant total = <%- locals.user.financement.montant %> FCFA</h1>
+                    </div>
+                    <% for (let i = 0; i < locals.user.financement.recompense.length; i++) { %>
+                        <div class="recompense">
+                            <div class="ttl"><p class="gras"><%- locals.user.financement.recompense[i].nom %></p> </div>
+                            <div class="mtn"><p><%- locals.user.financement.recompense[i].description %></p></div>
+                            <div class="desc"><p><%- locals.user.financement.recompense[i].montant %></p></div>
+                            <div class="select">
+                                <a href="/retire_rec/<%- [i ,projet[0].idProjet] %>" class="button">retirer cette recompense</a>
+                            </div>
+                        </div>
+                    <%}%>
+                </div>
+            </div>
+        <% } %>
+    <% } %>
+</div>
+<script>
+    var modal = document.querySelector('#recs');
+    var btn = document.querySelector('.news');
+    var active = false
+    //    var btnx = document.querySelector('.stop')
+
+   
+    btn.addEventListener('click', () => {
+        if(active == false){
+            modal.style.display = "block";
+            active = true
+        }
+        else{
+            modal.style.display = "none";
+            active = false
+        }
+    })
+    /*btnx.addEventListener('click', () => {
+           modal.style.display = "none"
+      })*/
+</script>
+<%- include('../inc/footer') %>

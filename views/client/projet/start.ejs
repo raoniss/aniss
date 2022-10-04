@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S'nah</title>
+    <link rel="stylesheet"  href="/assets/css/mycrt/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar_back"></div>
+        <nav class="navbar">
+           
+            <div>
+                <a href="/">LOGO</a>
+            </div> 
+        </nav>
+        <div class="start_form">
+            <form action="post">
+                <div>
+                    <p>Selctionner la categorie</p>
+                    <select name="categorie" id="categorie" placeholder="Categorie" required>
+                        <% categorie.forEach(data => { %>
+                            <option value="<%-data.idCategorie %>"><%- data.Cat_nom %> </option> 
+                        <% }) %> 
+                    </select>
+                </div>
+                <div>
+                    <p>Selection votre pays</p>
+                    <select name="pays" id="pays" placeholder="Pays" required>
+                        <% pays.forEach(data => { %>
+                            <option value="<%-data.idPays %>"><%- data.Py_nom %> </option> 
+                        <% }) %> 
+                    </select>
+                </div>
+                <a class="button" href="/projet/create">Suivant</a>
+                
+            </form>
+        </div>
+</div>
+<%- include('../../inc/footer') %>

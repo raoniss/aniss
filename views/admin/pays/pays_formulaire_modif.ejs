@@ -1,0 +1,7 @@
+<%- include('../inc/header') %> 
+<h1>modif</h1>
+    <form action="/pays/modifier/<%= pays[0].idPays %> " method="post">
+        <input type="text" name="nom" value="<%- pays[0].Py_nom %>" >
+        <input type="submit" name="modifier" >
+    </form>
+<%- include('../inc/footer') %> 

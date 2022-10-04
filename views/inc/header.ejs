@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/image/img/icone.png" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/temp/css/app.min.css">
+    <title>S'nah</title>
+    <link rel="stylesheet" href="/assets/css/mycrt/style.css">
+</head>
+
+<body>
+    <div class="contain">
+        <nav class="navbar_back">
+            <div class="navba">
+                <div>
+                    <a href="">DECOUVRIR S'NAHH</a>
+                    <a href="/projet/">LANCER UN PROJET</a>
+                </div>
+                <div>
+                    <a href="/"><img src="/assets/image/img/logo.png" alt=""></a>
+                </div>
+                <div>
+                    <input type="text" placeholder="recherche">
+                </div>
+                <% if (locals.user !== undefined && locals.user.message != "") { %>
+
+                <div class="dropdown d-inline mr-2">
+                    <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <%= user.nom %>
+                        <span>1</span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/profil/">Profil</a>
+                        <% if (locals.user.pj == true) { %>
+                        <a class="dropdown-item" href="/camp">campagne</a>
+                        <% } %>
+                        <a class="dropdown-item " id="message" >message</a>
+                        <a class="dropdown-item" href="/logout">deconnexion</a>
+                    </div>
+                </div>
+                <% } else if (locals.user !== undefined) { %>
+                <div class="dropdown d-inline mr-2">
+                    <li class="dropdown dropdown-list-toggle">
+                        <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <%= user.nom %>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="/profil/">Profil</a>
+                            <% if (locals.user.pj == true) { %>
+                            <a class="dropdown-item" href="/camp">campagne</a>
+                            <% } %>
+                            <a class="dropdown-item" href="/logout">deconnexion</a>
+                        </div>
+                    </li>
+                </div>
+                <% } else { %>
+                <div>
+                    <a href="/signin/">CONNEXION</a>
+                </div>
+                <% } %>
+
+            </div>
+        </nav>

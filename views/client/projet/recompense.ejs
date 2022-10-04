@@ -1,0 +1,133 @@
+<%- include('../../inc/headerstart') %>
+<!--formulaire-->
+<div class="container_start">
+    <div class="presentation">
+        <p class="gras">Proposer quelques recompenses</p>
+        <p>Donner leur envie de vous aider en leur proposant des contreparties </p>
+    </div>
+    <div class="ligne_rec">
+        <div class="recompense">
+            <div class="header">
+                <p>toutes les recompenses</p>
+            </div>
+            <div class="body">
+                <% if(recompense){ %>
+                <% for( let i = 0; i < recompense.length; i++ ) { %>
+                <div>
+                    <div>
+                        <p style="color: black;"><%- recompense[i].nom %> </h1>
+                    </div>
+                    <div>
+                        <a href="/projet/modrec/<%- i %>">Mod</a>
+                        <a href="/projet/suprec/<%- i %> ">sup</a>
+                    </div>
+                    <!--modification-->
+                    
+                </div>
+                <!--modification-->
+                <% } %>
+                <% } %>
+            </div>
+            <button class="new">Nouvel recompense</button>
+        </div>
+    </div>
+    <div class="new_rec" id="new_rec" aria-hidden="true" role="dialog">
+        <div class="stopm">
+            <form action="/projet/create/recompense" method="post">
+                <!--<button class="stop">X</button>-->
+                <div>
+                    <h1>Recompense</h1>
+                </div>
+                <div>
+                    <p>Titre</p>
+                    <input type="text" name="nom" required>
+                </div>
+                <div>
+                    <p>Montant</p>
+                    <input name="montant" type="number" required>
+                </div>
+                <div>
+                    <p>Description</p>
+                    <textarea name="description" id="" cols="30" rows="10" name="description" required></textarea>
+                </div>
+                <div>
+                    <p>Type</p>
+                    <div>
+                        <input type="radio" name="type" id="liv_mond" value="monde">
+                        <label for="liv_mond">Physique</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="type" id="liv_pays" value="pays">
+                        <label for="liv_pays">Virtuel</label>
+                    </div>
+                </div>
+                <div>
+                    <p>Lieu de livraison</p>
+                    <div>
+                        <input type="radio" name="livraison" id="liv_mond" value="monde">
+                        <label for="liv_mond">A domicile</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="livraison" id="liv_pays" value="pays">
+                        <label for="liv_pays">Point de distribution</label>
+                    </div>
+                </div>
+                <div>
+                    <p>Date estime de livraison</p>
+                    <input type="date" name="date_livraison">
+                </div>
+                <div>
+                    <p>Quantite</p>
+                    <input type="number" name="quantite">
+                </div>
+                <div>
+                    <p>Date limite</p>
+                    <input type="text" name="date_limite">
+                </div>
+                <div>
+                    <button type="submit" class="button">ENREGISTRER</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <a class="button" id="suivant" href="/projet/create/votre_histoire">
+        <p>suivant</p>
+    </a>
+</div>
+<!---->
+<!--formulaire-->
+<script>
+    var modal = document.querySelector('#new_rec')
+    var mod = document.querySelector('#new_rec_mod')
+    var modal_stop = document.querySelector('.stopm')
+    var btn = document.querySelector('.new')
+    var bt = document.querySelector('.mod')
+    //    var btnx = document.querySelector('.stop')
+
+    const stop = (e) => {
+        e.stopPropagation()
+    }
+    btn.addEventListener('click', () => {
+        modal_stop.addEventListener('click', stop)
+        modal.style.display = "flex"
+    })
+    /*btnx.addEventListener('click', () => {
+           modal.style.display = "none"
+      })*/
+    modal.addEventListener('click', () => {
+        modal.style.display = "none"
+    })
+
+
+    bt.addEventListener('click', () => {
+        modal_stop.addEventListener('click', stop)
+        mod.style.display = "flex"
+    })
+    /*btnx.addEventListener('click', () => {
+           modal.style.display = "none"
+      })*/
+    mod.addEventListener('click', () => {
+        mod.style.display = "none"
+    })
+</script>
+<%- include('../../inc/footer') %>

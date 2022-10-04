@@ -1,0 +1,29 @@
+<%- include('../inc/header') %> 
+<% if (locals.flash && locals.flash.error) {%>
+    <div class="erreur">
+        <%= flash.error %>
+    </div>
+    <% } %>
+<div class="formcontaine">
+    <div class="form">
+        <h1>Connexion</h1>
+        <form action="/signin" method="post">
+            <div>
+                <input type="text" name="nom" id="nom" placeholder="Identifient ou Email" required>
+            </div>
+            <div>
+                <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="mot de passe" required>
+            </div>
+            <div>
+                <a href="">mot de passe oublie ?</a>
+            </div>
+            <div class="connexion">
+                <button type="submit">SE CONNECTER</button>
+            </div>
+        </form>
+        <div class="inscription">
+            <p>premiere fois a s'nahh ? <a href="/signup">Iscrivez-vous</a></p>
+        </div>
+    </div>
+</div>
+<%- include('../inc/footer') %>

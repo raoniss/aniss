@@ -1,0 +1,17 @@
+<%- include('../inc/header') %> 
+
+<form id ="ajouter" action="/campagne/modifier/<%- campagne[0].idCampagne %> " method="post">
+    <input type="text" name="matricule" value="<%- campagne[0].Cp_matricule %> ">
+    <input type="number" name="montant" value="<%- campagne[0].Cp_montant_recuperes %> ">
+    <input type="date" name="date_debut" value="<%- campagne[0].Cp_date_debut %>">
+    <input type="date" name="date_fin" value="<%- campagne[0].Cp_date_fin %>">
+    <input type="text" name="video" value="<%- campagne[0].Cp_video %> ">
+    <input type="text" name="photo" value="<%- campagne[0].Cp_photo %> ">
+    <input type="number" name="nombre_participants" value="<%- campagne[0].Cp_nombre_participants %> ">
+    <input type="text" name="texte" value="<%- campagne[0].Cp_texte %> ">
+    <input type="number" name="nombre_suivis" value="<%- campagne[0].Cp_nombre_suivis %>">
+    <input type="number" name="projet" value="<%- campagne[0].Cp_projet %> ">
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

@@ -1,0 +1,15 @@
+<%- include('../inc/header') %> 
+
+<form id ="ajouter" action="/user/modifier/<%- user[0].idUtilisateur %> " method="post">
+    <input type="text" name="nom" value="<%- user[0].User_nom %>">
+    <input type="text" name="mot_de_passe" value="<%- user[0].User_mot_de_passe%>">
+    <input type="text" name="photo_profil" value="<%- user[0].User_photo_profil %>">
+    <input type="text" name="photo_page" value="<%- user[0].User_photo_page %>">
+    <input type="text" name="description" value="<%- user[0].User_description %>">
+    <input type="text" name="reseaux_sociaux" value="<%- user[0].User_reseaux_socials %>">
+    <input type="text" name="projet_suivis" value="<%- user[0].User_projets_suivis %>">
+    <input type="text" name="pays" value="<%- user[0].Pays_idPays %>"> 
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

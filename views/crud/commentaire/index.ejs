@@ -1,0 +1,32 @@
+<!--Cm_utilisateur	Cm_campagne	Cm_commentaire-->
+<%- include('../inc/header') %> 
+<a href="/">ACEUIL</a>
+<table>
+    <thead>
+        <tr>
+            <th>UTILISATEUR</th>
+            <th>CAMPAGNE</th>
+            <th>COMMENTAIRE</th>
+            <th>DATE</th>
+    </thead>
+    <tbody>
+        <% commentaire.forEach(data => { %>
+        <tr>
+            <td><%- data.Cm_utilisateur %> </td>
+            <td><%- data.Cm_campagne %> </td>
+            <td><%- data.Cm_commentaire %> </td>
+            <td><%- data.Cm_date %> </td>
+            <td><a href="/commentaire/modifier/<%- data.idCommentaire %>">modifier</a></td>
+            <td><a href="/commentaire/supprimer/<%- data.idCommentaire %>">supprimer</a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+    <form id ="ajouter" action="/commentaire/ajoute" method="post">
+        <input type="number" name="utilisateur">
+        <input type="number" name="campagne">
+        <input type="text" name="commentaire">
+        <input type="date" name="date">
+        <input type="submit">
+    </form>
+<%- include('../inc/footer') %>

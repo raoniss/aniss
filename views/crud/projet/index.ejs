@@ -1,0 +1,39 @@
+<%- include('/../inc/header') %> 
+<a href="/">ACEUIL</a>
+<table>
+    <thead>
+        <tr>
+            <th>MATRICULE</th>
+            <th>DESCRIPTION</th>
+            <th>TITRE</th>
+            <th>CAGNOTTE</th>
+            <th>CREATEUR</th>
+            <th>CATEGORIE</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% projet.forEach(data => { %>
+        <tr>
+            <td><%- data.Pj_matricule %> </td>
+            <td><%- data.Pj_description %> </td>
+            <td><%- data.Pj_titre %> </td>
+            <td><%- data.Pj_cagnotte %> </td>
+            <td><%- data.Pj_createur %> </td>
+            <td><%- data.Pj_categorie %> </td>
+            <td><a href="/projet/modifier/<%- data.idProjet %>">modifier</a></td>
+            <td><a href="/projet/supprimer/<%- data.idProjet %>">supprimer</a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+<form id ="ajouter" action="/projet/ajoute/" method="post">
+    <input type="text" name="matricule">
+    <input type="text" name="description">
+    <input type="text" name="titre">
+    <input type="text" name="cagnotte">
+    <input type="text" name="createur">
+    <input type="text" name="categorie">
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

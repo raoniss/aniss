@@ -1,0 +1,93 @@
+<%- include('../inc/header') %>
+<div class="back">
+
+</div>
+<div class="back2">
+
+</div>
+<div class="conte">
+    <div class="text">
+        <h1>Faites vivre vos idees</h1>
+    </div>
+    <div class="sat">
+        <div>
+            <div>
+                <p class="num">2223344</p>
+                <p>Porjet soutenu</p>
+            </div>
+            <div>
+                <p class="num">22444355</p>
+                <p>Engagnement</p>
+            </div>
+        </div>
+    </div>
+    <div class="neww">
+        <p>Les Nouveautes </p>
+    </div>
+    <div class="diag_proj">
+        <div class="proj">
+            <% if (projet.length <= 8) { %>
+            <% projet.forEach(data => { %>
+            <a href="/vue/<%- data.idProjet%>">
+                <div class="cart">
+                    <div class="image">
+                        <img src="<%- data.Cp_photo%> " alt="">
+                    </div>
+                    <div class="titre">
+                        <p><%- data.Pj_titre%></p>
+                    </div>
+                    <div class="desc">
+                        <p><%- data.Pj_description %></p>
+                    </div>
+                </div>
+            </a>
+            <% }) %>
+            <% } else { %>
+            <% for( let i = 0; i < 8; i++ ) { %>
+            <div class="cart">
+                <div class="image">
+                    <img src="<%- projet[i].Cp_photo %>" alt="">
+                </div>
+                <div class="titre">
+                    <p><%- projet[i].Pj_titre %></p>
+                </div>
+                <div class="desc">
+                    <p><%- projet[i].Pj_description %></p>
+                </div>
+            </div>
+            <% } %>
+            <% } %>
+
+
+        </div>
+    </div>
+</div>
+<% if (locals.user !== undefined && locals.user.message != '') { %>
+<div id="recs">
+    <div class="message">
+        <p><%- locals.user.message %> </p>
+        <a class="btn-primary" href="/recu_message/<%- locals.user.message %>">OK Bien recu</a>
+    </div>
+</div>
+<% } %>
+<script>
+    var modal = document.querySelector('#recs');
+    var btn = document.querySelector('#message');
+    var active = false
+    //    var btnx = document.querySelector('.stop')
+
+  
+    btn.addEventListener('click', () => {
+        if (active == false) {
+            modal.style.display = "block";
+            active = true
+        } else {
+            modal.style.display = "none";
+            active = false
+        }
+    })
+    /*btnx.addEventListener('click', () => {
+           modal.style.display = "none"
+      })*/
+</script>
+<%- include('../inc/footer') %>

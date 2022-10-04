@@ -1,0 +1,66 @@
+<%- include('../inc/header') %>
+<% if (locals.user) { %>
+<% if (locals.user.financement.montant > 0) { %>
+<div class="sout">
+    <div class="carde">
+        <p>Nom d'utilisateur : <%- locals.user.nom %> </p>
+        <p>Nom du projet : <%- locals.user.financement.projet.nom %> </p>
+        <% if (locals.user.financement.recompense.length!=0) { %>
+        <p>Nombre total de recompense choisies : <%- locals.user.financement.recompense.length %> </p>
+        <% } else { %>
+        <p>Nombre total de recompense choisies : 0 </p>
+        <% } %>
+        <p>Total de montant <%- locals.user.financement.montant %></p>
+        <!--<p><%- //locals.user.financement.projet.id %> </p>-->
+        <div class="action">
+            <p>Moyen de payement</p>
+            <div>
+                <button class="paye">Tmoney</button>
+                <button class="pa">Flooz</button>
+            </div>
+        </div>
+    </div>
+</div>
+<% } else { %>
+<div class="sout">
+    <p>vous n'aver soutenu d'aucune somme</p>
+</div>
+<% } %>
+<% } %>
+<script>
+    let paye = document.querySelector('.paye')
+    const api = "http://localhost:8080/test"
+    const url = "https://paygateglobal.com/api/v1/pay"
+    const phone_number = "90059173"
+    const amount = 1
+    let description
+    const id = `${Math.random()}`
+    let network
+    let payement = {
+        auth_token: 'b66a4104-2333-4376-ab92-39abba92aa16',
+        phone_number: '90059173',
+        amount: '1',
+        description: 'dtc',
+        identifier: 'hgftttf2',
+        network: "TMONEY",
+    }
+    
+        paye.addEventListener('click', () => {
+            fetch("https://paygateglobal.com/api/v1/pay", {
+                method: "POST",
+                headers: {
+                    Accept: 'application.json',
+                    'Content-Type': 'application/json'
+                },
+                body: payement
+            }).then((res) => {
+                return res.json()
+            }).then((popo) => {
+                console.log(popo)
+            }).catch((err) => {
+                console.log('errrrr' + err)
+            })
+        })
+
+</script>
+<%- include('../inc/footer') %>

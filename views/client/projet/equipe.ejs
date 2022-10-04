@@ -1,0 +1,29 @@
+<%- include('../../inc/headerstart') %>
+<!--formulaire-->
+<div class="container_start">
+    <div class="presentation">
+        <p class="gras">Qui etes-vous</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quae quos distinctio labore laboriosam eius modi magni animi harum, sit, iusto pariatur nihil in hic iure id tempora voluptatum consectetur?</p>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">PROFIL</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="eq_profil">
+            <div class="eq_pp"></div>
+            <div class="eq_body">
+                <div>
+                    <p class="gras"><%= user.nom %> </p>
+                    <p>Createur</p>
+                    <a class="button" href="#"><p>Modifier votre profil</p></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="button" id="suivant" href="/projet/create/votre_histoire"><p>suivant</p></a>
+</div>
+<!--formulaire-->
+<%- include('../../inc/footer') %>

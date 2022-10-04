@@ -1,0 +1,16 @@
+<%- include('../../inc/header') %> 
+<% if (locals.flash && locals.flash.error) {%>
+    <div class="erreur">
+        <%= flash.error %>
+    </div>
+    <% } %>
+<div class="lancement">
+    <div class="text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius ab odit doloremque facere reprehenderit ipsam, eveniet qui commodi</p>
+        <a href="/projet/start" class="button">Demarer un projet</a>
+    </div>
+    <div class="image" id="n1"></div>
+    <div class="image" id="n2"></div>
+    <div class="image" id="n3"></div>
+</div>
+<%- include('../../inc/footer') %>

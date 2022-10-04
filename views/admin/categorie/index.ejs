@@ -1,0 +1,12 @@
+<%- include('../inc/header') %> 
+<a href="/">ACEUIL</a>
+    <%categorie.forEach(data => { %>
+        <h1><%- data.Cat_nom %> </h1>
+        <a href="/categorie/modifier/<%- data.idCategorie %> ">modifier</a>
+        <a href="/categorie/supprimer/<%- data.idCategorie %> ">supprimer</a>
+    <% }) %>
+    <form id ="ajouter" action="/categorie/creer" method="post">
+        <input type="text" name="nom">
+        <input type="submit">
+    </form>
+<%- include('../inc/footer') %> 

@@ -1,0 +1,13 @@
+<%- include('../inc/header') %> 
+
+<form id ="ajouter" action="/projet/modifier/<%- projet[0].idProjet %> " method="post">
+    <input type="text" name="matricule" value="<%- projet[0].Pj_matricule %>">
+    <input type="text" name="description" value="<%- projet[0].Pj_description %>">
+    <input type="text" name="titre"value="<%- projet[0].Pj_titre %>">
+    <input type="text" name="cagnotte" value="<%- projet[0].Pj_cagnotte %>">
+    <input type="text" name="createur" value="<%- projet[0].Pj_createur %>">
+    <input type="text" name="categorie" value="<%- projet[0].Pj_categorie %>">
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

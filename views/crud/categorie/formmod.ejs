@@ -1,0 +1,8 @@
+<%- include('../inc/header') %> 
+<h1>modif</h1>
+    <form action="/categorie/modifier/<%= categorie[0].idCategorie %> " method="post">
+        <input type="text" name="nom" value="<%- categorie[0].Cat_nom %>" >
+        <input type="submit" name="modifier" >
+    </form>
+
+<%- include('../inc/footer') %> 

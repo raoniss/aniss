@@ -1,0 +1,15 @@
+<%- include('../inc/header') %>
+<form id ="ajouter" action="/recompense/modifier/<%- recompense[0].idRecompense%>" method="post">
+    <input type="text" name="matricule" value="<%- recompense[0].Rec_matricule %>"> 
+    <input type="text" name="titre" value="<%- recompense[0].Rec_titre %>">
+    <input type="text" name="description" value="<%- recompense[0].Rec_description %>">
+    <input type="number" name="montant" value="<%- recompense[0].Rec_montant %>">
+    <input type="date" name="date_limite" value="<%- recompense[0].Rec_date_limite %>">
+    <input type="number" name="nombre" value="<%- recompense[0].Rec_nombre %>">
+    <input type="text" name="url" value="<%- recompense[0].Rec_url %>">
+    <input type="number" name="campagne" value="<%- recompense[0].Campagne_idCampagne %>">
+    <input type="number" name="pays" value="<%- recompense[0].Pays_idPays %>">
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

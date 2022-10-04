@@ -1,0 +1,184 @@
+<%- include('../../inc/headerstart') %>
+<!--formulaire-->
+<form action="/projet/create/base" enctype="multipart/form-data" class="container_start" method="post">
+    <div class="presentation">
+        <p class="gras">Commencons par les bases de vortre projet</p>
+        <p>Donnez toutes les informations sur votre projet pour vous faire mieux comprendre </p>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">TITRE</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="form_start">
+            <div class="form">
+                <div>
+                    <p class="gras">TITRE</p>
+                    <% if (projet) { %>
+                        <input type="text" name="titre" placeholder="donner un titre a votre projet" value="<%- projet.titre %> " required>
+                        <% } else { %>
+                            <input type="text" name="titre" placeholder="donner un titre a votre projet" required>
+                    <% } %>
+                </div>
+                <div>
+                    <p class="gras">DESCRIPTION</p>
+                    <% if (projet) { %>
+                        <textarea name="description" id="" cols="30" rows="10" placeholder="decrire votre projet"
+                    required><%- projet.description %> </textarea>
+                    <% } else { %>
+                        <textarea name="description" id="" cols="30" rows="10" placeholder="decrire votre projet"
+                            required></textarea>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">CATEGORIE ET PAYS</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="form_start">
+            <div class="form">
+                <div>
+                    <p class="gras">Selctionner la categorie</p>
+                    <% if (projet) { %>
+                        <select name="categorie" id="categorie" placeholder="Categorie" required>
+                            <% categorie.forEach(data => { %>
+                                <% if (data.idCategorie == Number(projet.categorie)) { %>
+                                    <option value="<%-data.idCategorie %>" selected><%- data.Cat_nom %> </option>
+                                    <% } else { %>
+                                        <option value="<%-data.idCategorie %>"><%- data.Cat_nom %> </option>
+                                <% } %>
+                            <% }) %>
+                        </select>
+                        <% } else { %>
+                            <select name="categorie" id="categorie" placeholder="Categorie" required>
+                                <option selected>-- categorie --</option>
+                                <% categorie.forEach(data => { %>
+                                <option value="<%-data.idCategorie %>"><%- data.Cat_nom %> </option>
+                                <% }) %>
+                            </select>
+                    <% } %> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">IMAGE</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="form_start">
+            <div class="formp">
+                <div class="preview pr">
+                    <div id="photo">
+                        <% if (projet) { %>
+                            <label for="profile_pic">
+                                <div><img src="<%- projet.campagne.photo %> " alt=""></div>
+                            </label>
+                            <input class="photo" type="file" id="profile_pic" name="photo" accept="image/*">
+                            <% } else { %>
+                                <label for="profile_pic">
+                                    <div>Sélectionnez le fichier à utiliser</div>
+                                </label>
+                                <input class="photo" type="file" id="profile_pic" name="photo" accept="image/*">
+                        <% } %>
+                    </div>
+
+                    <p>Aucun fichier sélectionné pour le moment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">VIDEO</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="form_start">
+            <div class="formp">
+                <div class="previews pr">
+                    <div id="video">
+                        <label for="profile_vid">
+                            <div>Sélectionnez le fichier à utiliser</div>
+                        </label>
+                        <input class="video" type="file" id="profile_vid" name="video" accept="video/*">
+                    </div>
+
+                    <p>Aucun fichier sélectionné pour le moment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">DATE DE LANCEMENT</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="form_start">
+            <div class="form">
+                <div>
+                    <p class="gras">DATE</p>
+                    <% if (projet) { %>
+                        <input type="date" name="date_lancement" value="<%- projet.campagne.date %> " required>
+                        <% } else { %>
+                            <input type="date" name="date_lancement" required>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">DUREE DE LA CAMPAGNE</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="form_start">
+            <div class="form">
+                <div>
+                    <p class="gras">DUREE</p>
+                    <input class="duree" type="number" name="duree" placeholder="00" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ligne">
+        <div class="text">
+            <p class="gras">OBJECTIF DE FINANCEMENT</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias placeat quia ea repellendus,
+                assumenda tenetur esse amet doloremque reprehenderit corrupti ut sunt asperiores, non aspernatur omnis a
+                fugiat maxime voluptates.</p>
+        </div>
+        <div class="form_start">
+            <div class="form">
+                <div>
+                    <p class="gras">OBJECTIF DE FINANCEMENT</p>
+                    <% if (projet) { %>
+                        <input type="number" name="cagnotte" placeholder="00$" value="<%- Number(projet.cagnotte) %> " required>
+                        <% } else { %>
+                            <input type="number" name="cagnotte" placeholder="00$" required>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="suivant" type="submit">
+        ENREGISTRER
+    </button>
+</form>
+<!--formulaire-->
+<%- include('../../inc/footer') %>

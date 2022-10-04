@@ -1,0 +1,520 @@
+:root{
+    --orangeclaire : #F7AF60;
+    --orangemoyen : #F2554D; 
+    --orangemoyenop : #ffb1a3; 
+    --orangefonce : #c24a44;
+    --grisclair : #f7f7f6;
+    --grismoyen : #e8e8e8;
+    --grisfonce : #979797;
+    --blanc : #fff;
+    --deg : -1deg
+}
+@font-face {
+    font-family: inter;
+    src: url('../../font/inter/static/Inter-Regular.ttf');
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: inter;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+/*/tous les composant/*/
+nav{
+    position: fixed;
+    display: flex;
+    width: 100%;
+    z-index: 2;
+}
+a img{
+    height: 60px;
+}
+a{
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button{
+    color: var(--blanc);
+    background-color: var(--orangemoyen);
+    border: none;
+    transition: all 0.3s ;
+}
+button:hover{
+    background-color: var(--orangefonce);
+}
+.button{
+    color: var(--blanc);
+    background-color: var(--orangemoyen);
+    border: none;
+    transition: all 0.3s ;
+}
+.button:hover{
+    background-color: var(--orangefonce);
+}
+input{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    outline: none;
+    padding: 5px;
+    border: 1px solid var(--grisfonce);
+}
+input:focus{
+    border: solid 2px var(--orangemoyen);
+}
+textarea{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    outline: none;
+    padding: 5px 5px;
+}
+textarea:focus{
+    border: solid 2px var(--orangemoyen);
+}
+.container_start>div{
+    width: 100%;
+    border-top: solid 1px var(--grismoyen);
+    border-bottom: solid 1px var(--grismoyen);
+}
+.new_navbar{
+    flex-direction: column;
+    height: 140px;
+    border-bottom: solid 5px var(--orangemoyen);
+    background-color: var(--blanc)
+}
+.new_navbar >div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    border-bottom: solid 0.5px var(--orangemoyen);
+}
+.new_navbar >div #apercu{
+    position: absolute;
+    top: 20%;
+    right: 5%;
+}
+.new_navbar >div ul{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.new_navbar >div ul a li{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+   
+}
+.new_navbar >div ul a{
+    height: 100%;
+    width: 15%;
+    display: block;
+    color: black;
+    text-align: center;
+}
+.new_navbar >div ul a:hover{
+    color: var(--blanc);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--orangemoyenop);
+}
+/*****page des bases*****/
+#suivant{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    height: 5%;
+    width: 10%;
+}
+.container_start{
+    top: 23%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: var(--grisfonce);
+}
+.container_start .presentation{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container_start .presentation p{
+    text-align: center;
+}
+.container_start .ligne{
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+.container_start .ligne>div{
+    width: 45%;
+    height: 100%;
+}
+.container_start .ligne .form_start .form{
+    width: 100%;
+    height: 90%;
+}
+.container_start .ligne .form_start .formp{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.container_start .ligne .form_start .form>div{
+    width: 100%;
+}
+.container_start .ligne .form_start .form>div>input{
+    width: 80%;
+}
+.container_start .ligne .form_start .form>div>textarea{
+    width: 80%;
+    border: solid 1px var(--grisfonce);
+}
+.container_start .ligne .form_start .form>div>.duree{
+    width: 7%;
+    height: 30px;
+    border: solid 1px var(--grisfonce);
+}
+.container_start .ligne .form_start .form #photo{
+    position: relative;
+    top: 40px;
+}
+.container_start .ligne .form_start .formp .pr{
+    height: 70%;
+    width: 90%;
+    border: solid 1px var(--grisfonce);
+    overflow: hidden;
+}
+.container_start .ligne .form_start .formp .pr>ol{
+    height: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container_start .ligne .form_start .formp .pr>ol>li{
+    height: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.container_start .ligne .form_start .formp .pr>ol>li>img{
+    height: 100%;
+    height: 100%;
+}
+.container_start .ligne .form_start .formp>.pr>div{
+    height: 100%;
+    height: 100%;
+}
+.container_start .ligne .form_start .formp>.pr>div>label>div{
+    height: 100%;
+    height: 100%;
+}
+/*****page des bases*****/
+/*****page des recompenses*****/
+.container_start .ligne_rec{
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.container_start .ligne_rec .recompense{
+    width: 50%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 20px;
+}
+.container_start .ligne_rec .recompense .header{
+    width: 100%;
+    height:20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--orangemoyen);
+    color: var(--blanc);
+}
+.container_start .ligne_rec .recompense .body{
+    width: 100%;
+    height:80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+.container_start .ligne_rec .recompense .body>div{
+    width: 100%;
+    height:20%;
+    border-radius: 10px;
+    margin-top: 5px;
+    background-color: var(--grismoyen);
+}
+.new{
+    position: absolute;
+    right: 7%;
+    top: 4%;
+    width: 15%;
+    height: 16%;
+}
+.container_start .new_rec{
+    position: fixed;
+    top: -10px;
+    height: 102%;
+    width: 100%;
+    padding-bottom: 15%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: all 1s;
+
+}
+.container_start .new_rec>div{
+    width: 60%;
+    height: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: scroll;
+    background-color: var(--blanc);
+}
+.container_start .new_rec >div>form{
+    width: 95%;
+    height: 200%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--blanc);
+}
+.container_start .new_rec>div>form>div{
+    width: 80%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-bottom: solid 2px var(--grismoyen);
+}
+.container_start .new_rec>div>form>div>input{
+    width: 80%;
+    height: 15%;
+}
+.container_start .new_rec>div>form>div>p{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.gras{
+    font-weight: bolder;
+    color: black;
+}
+.container_start .new_rec>div>form>div>div{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.container_start .new_rec>div>form>div>button{
+    height: 30%;
+    width: 40%;
+}
+/*****page des recompenses*****/
+/*****page des equipe*****/
+.container_start .ligne .eq_profil{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.container_start .ligne .eq_profil .eq_body{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border: solid 1px var(--grisfonce);
+    margin-bottom: 5px;
+}
+.container_start .ligne .eq_profil .eq_body>div{
+    width: 90%;
+    height: 80%;
+}
+.container_start .ligne .eq_profil .eq_pp{
+    position: absolute;
+    top: 30%;
+    right: 13%;
+    width: 120px;
+    height: 120px;
+    border-radius: 120px;
+    background-color: var(--orangemoyen);
+}
+/*****page des equipe*****/
+/*****page des fonds*****/
+.container_start .ligne .fd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container_start .ligne .fd_mail{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grismoyen);
+    border: solid 1px var(--grisfonce);
+}
+.container_start .ligne .fd_mail>div{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.container_start .ligne .fd_mail>div a{
+    width: 100%;
+    height: 20%;
+}
+/*****page des fonds*****/
+/*****page de histoire*****/
+
+
+/*****page de histoire*****/
+/*/ style de la page de creation d'un projet/*/
+/*/ style de la page de profil/*/
+.diago{
+    position: absolute;
+    top: 65%;
+    width: 150%;
+    height: 150%;
+    background-color: var(--blanc);
+    transform: rotate(var(--deg));
+    z-index: -1;
+}
+.photo_page{
+    width: 100%;
+    height: 60%;
+    position: absolute;
+    top: 11%;
+    background-color: var(--grismoyen);
+    z-index: -2;
+}
+.photo_profil{
+    width: 300px;
+    height: 300px;
+    top: 43%;
+    right: 5%;
+    position: absolute;
+    border-radius: 300px;
+    background-color: var(--orangemoyen);
+}
+.profil_container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 75%;
+}
+.profil_container .info{
+    position: absolute;
+    width: 40%;
+    height: 15%;
+    top: 5%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.profil_container .info>*{
+    margin: 0;
+}
+.profil_navbar{
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    top: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid 2px var(--orangemoyen);
+    border-top: solid 2px var(--orangemoyen);
+}
+.profil_navbar ul{
+    width: 35%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.profil_navbar ul a li{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+   
+}
+.profil_navbar ul a{
+    height: 100%;
+    width: 40%;
+    display: block;
+    color: black;
+    text-align: center;
+}
+.profil_navbar ul a:hover{
+    color: var(--blanc);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--orangemoyenop);
+}
+/*modal*/
+#create{
+    display: block;
+}
+#histoire{
+    display: none;
+}
+#recompense{
+    display: none;
+}
+#equipe{
+    display: none;
+}
+#fond{
+    display: none;
+}
+.nom{
+    display: none;
+}

@@ -1,0 +1,49 @@
+<%- include('../inc/header') %> 
+<a href="/">ACEUIL</a>
+<table>
+    <thead>
+        <tr>
+            <th>NOM</th>
+            <th>MDP</th>
+            <th>PR</th>
+            <th>PP</th>
+            <th>DES</th>
+            <th>RSX</th>
+            <th>PROSUVI</th>
+            <th>PYS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% user.forEach(data => { %>
+        <tr>
+            <td><%- data.User_nom %> </td>
+            <td><%- data.User_mot_de_passe %> </td>
+            <td><%- data.User_photo_profil %> </td>
+            <td><%- data.User_photo_profil %> </td>
+            <td><%- data.User_description %> </td>
+            <td><%- data.User_reseaux_socials %> </td>
+            <td><%- data.User_projets_suivis %> </td>
+            <td><%- data.Pays_idPays %> </td>
+            <td><a href="/user/modifier/<%- data.idUtilisateur %> ">modifier</a></td>
+            <td><a href="/user/supprimer/<%- data.idUtilisateur %> ">supprimer</a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+<form id ="ajouter" action="/user/ajoute/" method="post">
+    <input type="text" name="nom">
+    <input type="text" name="mot_de_passe">
+    <input type="text" name="photo_profil">
+    <input type="text" name="photo_page">
+    <input type="text" name="description">
+    <input type="text" name="reseaux_sociaux">
+    <input type="text" name="projet_suivis">
+    <select name="pays" id="">
+        <% pays.forEach(data => { %>
+            <option value="<%-data.idPays %>"><%- data.Py_nom %> </option> 
+        <% }) %>   
+    </select>
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

@@ -1,0 +1,48 @@
+<%- include('../inc/header') %> 
+<a href="/">ACEUIL</a>
+<table>
+    <thead>
+        <tr>
+            <th>MATRICULE</th>
+            <th>TITRE</th>
+            <th>DESCRIPTION</th>
+            <th>MONTANT</th>
+            <th>DATE LIMITE</th>
+            <th>NOMBRE</th>
+            <th>URL</th>
+            <th>CAMPAGNE</th>
+            <th>PAYS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% recompense.forEach(data => { %>
+        <tr>
+            <td><%- data.Rec_matricule %> </td>
+            <td><%- data.Rec_titre %> </td>
+            <td><%- data.Rec_description %> </td>
+            <td><%- data.Rec_montant %> </td>
+            <td><%- data.Rec_date_limite %> </td>
+            <td><%- data.Rec_nombre %> </td>
+            <td><%- data.Rec_url %> </td>
+            <td><%- data.Campagne_idCampagne %> </td>
+            <td><%- data.Pays_idPays %> </td>
+            <td><a href="/recompense/modifier/<%- data.idRecompense %>">modifier</a></td>
+            <td><a href="/recompense/supprimer/<%- data.idRecompense %>">supprimer</a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+<form id ="ajouter" action="/recompense/ajoute/" method="post">
+    <input type="text" name="matricule">
+    <input type="text" name="titre">
+    <input type="text" name="description">
+    <input type="number" name="montant">
+    <input type="date" name="date_limite">
+    <input type="number" name="nombre">
+    <input type="text" name="url">
+    <input type="number" name="campagne">
+    <input type="number" name="pays">
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

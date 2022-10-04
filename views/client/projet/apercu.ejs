@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/image/img/icone.png" type="image/x-icon">
+    <title>S'nah</title>
+    <link rel="stylesheet" href="/assets/css/mycrt/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar_back">
+            <div class="navba">
+
+                <div>
+                    <a href="/">retour</a>
+                </div>
+                <div>
+                    <a href="/projet/create">Enreigistrer</a>
+                </div>
+            </div>
+        </nav>
+        <div class="container_ap">
+            <div class="camp_head">
+                <div class="head">
+                    <div class="video">
+                        <div class="vid">
+                            <img src="<%- projet.campagne.photo %> " alt="">
+                        </div>
+                    </div>
+                    <div class="info">
+                        <div class="cont">
+                            <div class="chargement">
+                                <div class="charge">
+                                    <span></span>
+                                </div>
+                                <p class="G">0 FCFA</p>
+                                <p class="P">reunis sur <%- projet.cagnotte %> FCFA</p>
+                            </div>
+                            <div class="row">
+                                <p class="G">0</p>
+                                <p class="P">contributeur</p>
+                            </div>
+                            <div class="row">
+                                <p class="G">0</p>
+                                <p class="P">jours avant la fin</p>
+                            </div>
+                            <div class="row">
+                                <a href="#" class="button">
+                                    <p>Je soutiens ce projet</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="camp_body">
+                <div class="body">
+                    <div class="body_bar">
+                        <div>
+                            <ul>
+                                <a href="">
+                                    <li>Campagne</li>
+                                </a>
+                                <a href="">
+                                    <li>Commentaire</li>
+                                </a>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="" class="button">
+                                <p>Soutenir le projet</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="body_body">
+                        <div>
+                            <div class="tex_cont">
+                                <div class="text">
+                                    <% if (projet.campagne.text) { %>
+                                    <p> <%- projet.campagne.text %> </p>
+                                    <% } else { %>
+                                    <p></p>
+                                    <% } %>
+                                </div>
+                            </div>
+                            <div class="rec">
+                                <% if (projet.campagne.recompense) { %>
+                                <% projet.campagne.recompense.forEach(data => { %>
+                                <div>
+                                    <div class="ttl">
+                                        <p class="gras"><%- data.nom %></p>
+                                    </div>
+                                    <div class="mtn">
+                                        <p><%- data.description %></p>
+                                    </div>
+                                    <div class="desc">
+                                        <p><%- data.montant %></p>
+                                    </div>
+                                    <div class="select"></div>
+                                </div>
+                                <% }) %>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../../inc/footer') %>

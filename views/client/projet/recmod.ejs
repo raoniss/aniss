@@ -1,0 +1,64 @@
+<%- include('../../inc/headerstart') %>
+<div class="container_start">
+<div class="new_rec" id="new_rec_mod" aria-hidden="true" role="dialog">
+    <div class="stopm">
+        <form action="/projet/modrec/<%- id %>" method="post">
+            <!--<button class="stop">X</button>-->
+            <div>
+                <h1>Recompense</h1>
+            </div>
+            <div>
+                <p>Titre</p>
+                <input type="text" name="nom" value="<%- rec.nom %> " required>
+            </div>
+            <div>
+                <p>Montant</p>
+                <input name="montant" type="number" value="<%- rec.montant %> " required>
+            </div>
+            <div>
+                <p>Description</p>
+                <textarea name="description" id="" cols="30" rows="10" name="description" required
+                    value="<%- rec.description %> "><%- rec.description %> </textarea>
+            </div>
+            <div>
+                <p>Type</p>
+                <div>
+                    <input type="radio" name="type" id="liv_mond" value="monde">
+                    <label for="liv_mond">Physique</label>
+                </div>
+                <div>
+                    <input type="radio" name="type" id="liv_pays" value="pays">
+                    <label for="liv_pays">Virtuel</label>
+                </div>
+            </div>
+            <div>
+                <p>Lieu de livraison</p>
+                <div>
+                    <input type="radio" name="livraison" id="liv_mond" value="monde">
+                    <label for="liv_mond">A domicile</label>
+                </div>
+                <div>
+                    <input type="radio" name="livraison" id="liv_pays" value="pays">
+                    <label for="liv_pays">Point de distribution</label>
+                </div>
+            </div>
+            <div>
+                <p>Date estime de livraison</p>
+                <input type="date" name="date_livraison"
+                    value="<%- rec.date_livraison %> ">
+            </div>
+            <div>
+                <p>Quantite</p>
+                <input type="number" name="quantite" value="<%- rec.quantite %>">
+            </div>
+            <div>
+                <p>Date limite</p>
+                <input type="text" name="date_limite" value="<%- rec.date_limite %> ">
+            </div>
+            <div>
+                <button type="submit" class="button">MODIFIER</button>
+            </div>
+        </form>
+    </div>
+</div>
+<%- include('../../inc/footer') %>

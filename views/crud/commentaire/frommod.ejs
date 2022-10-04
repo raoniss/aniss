@@ -1,0 +1,10 @@
+<!--Cm_utilisateur	Cm_campagne	Cm_commentaire-->
+<%- include('../inc/header') %> 
+    <form id ="ajouter" action="/commentaire/modifier/<%- commentaire[0].idCommentaire %> " method="post">
+        <input type="text" name="utilisateur"  value="<%- commentaire[0].Cm_utilisateur %> ">
+        <input type="text" name="campagne" value="<%- commentaire[0].Cm_campagne %> ">
+        <input type="text" name="commentaire"  value="<%- commentaire[0].Cm_commentaire %> ">
+        <input type="text" name="date" value="<%- commentaire[0].Cm_date %> ">
+        <input type="submit">
+    </form>
+<%- include('../inc/footer') %>

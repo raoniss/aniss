@@ -1,0 +1,44 @@
+<%- include('../../inc/headerstart') %>
+<!--formulaire-->
+<div class="container_start">
+    <div class="presentation">
+        <p class="gras">Fiates les voyager</p>
+        <p>Donner leur envie de vous soutenir</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quae quos distinctio labore laboriosam eius
+            modi magni animi harum, sit, iusto pariatur nihil in hic iure id tempora voluptatum consectetur?</p>
+    </div>
+    <div id="container">
+        <% if (campagne.text) { %>
+        <form action="/projet/create/histoire" method="post">
+            <textarea id="editor" name="texte">
+                    <%= campagne.text %> 
+            </textarea>
+            <button id="suivant" type="submit">
+                ENREGISTRER
+            </button>
+        </form>
+        <% } else { %>
+        <form action="/projet/create/histoire" method="post">
+            <textarea id="editor" name="texte">
+                </textarea>
+            <button id="suivant" type="submit">
+                ENREGISTRER
+            </button>
+        </form>
+        <% } %>
+    </div>
+</div>
+<script src="/assets/js/ckeditor5/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+<!--formulaire-->
+<%- include('../../inc/footer') %>

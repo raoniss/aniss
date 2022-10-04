@@ -1,0 +1,51 @@
+<%- include('../inc/header') %> 
+<a href="/">ACEUIL</a>
+<table>
+    <thead>
+        <tr>
+            <th>MATRICULE</th>
+            <th>MONTANT</th>
+            <th>DATE DEBUT</th>
+            <th>DATE DE FIN</th>
+            <th>VIDEO</th>
+            <th>PHOTO</th>
+            <th>NOMBRE PARTICIPANTS</th>
+            <th>TEXTE</th>
+            <th>NOMBRE SUIVIS</th>
+            <th>PROJET</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% campagne.forEach(data => { %>
+        <tr>
+            <td><%- data.Cp_matricule %> </td>
+            <td><%- data.Cp_montant_recuperes %> </td>
+            <td><%- data.Cp_date_debut %> </td>
+            <td><%- data.Cp_date_fin %> </td>
+            <td><%- data.Cp_video %> </td>
+            <td><%- data.Cp_photo %> </td>
+            <td><%- data.Cp_nombre_participants %> </td>
+            <td><%- data.Cp_texte %> </td>
+            <td><%- data.Cp_nombre_suivis %> </td>
+            <td><%- data.Cp_projet %> </td>
+            <td><a href="/campagne/modifier/<%- data.idCampagne %>">modifier</a></td>
+            <td><a href="/campagne/supprimer/<%- data.idCampagne %>">supprimer</a></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+<form id ="ajouter" action="/campagne/ajoute/" method="post">
+    <input type="text" name="matricule">
+    <input type="number" name="montant">
+    <input type="date" name="date_debut">
+    <input type="date" name="date_fin">
+    <input type="text" name="video">
+    <input type="text" name="photo">
+    <input type="number" name="nombre_participants">
+    <input type="text" name="texte">
+    <input type="number" name="nombre_suivis">
+    <input type="number" name="projet">
+    <input type="submit">
+</form>
+
+<%- include('../inc/footer') %> 

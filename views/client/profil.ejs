@@ -1,0 +1,24 @@
+<%- include('../inc/header') %> 
+    <div class="diago">
+
+    </div>
+    <div class="photo_page">
+        <img src="<%- user.photo_page %> " alt="">
+    </div>
+    <div class="photo_profil">
+        <img src="<%- user.photo_profil %> " alt="">
+    </div>
+    <div class="profil_container">
+        <div class="info">
+            <h1><%- user.nom %> </h1>
+            <p><%- user.projets_suivis %> projet soutenue</p>
+        </div>
+        <div class="profil_navbar">
+            <ul>
+                <a href="/qui_suis_je/"><li>QUI suis je</li></a>
+                <a href="/projet_soutenus/"><li>Projet soutenus</li></a>
+            </ul>
+        </div>
+        
+    </div>
+<%- include('../inc/footer') %>
